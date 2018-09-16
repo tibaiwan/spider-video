@@ -1,0 +1,23 @@
+{
+  "name": "spider-video",
+  "version": "1.0.0",
+  "description": "Node 下载视频",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tibaiwan/spider-picture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tibaiwan/spider-picture/issues"
+  },
+  "homepage": "https://github.com/tibaiwan/spider-picture#readme",
+  "devDependencies": {
+    "puppeteer": "^1.8.0"
+  }
+}
