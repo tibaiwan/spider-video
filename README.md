@@ -1,13 +1,13 @@
-# 批量抓取头条视频并保存到本地
+# 批量爬取头条视频并保存
 
-目标网站：[西瓜视频](https://www.ixigua.com//)  
-项目功能：下载头条号【维辰财经】下的最新20个视频
+目标网站：[西瓜视频](https://www.ixigua.com)  
+项目功能：下载头条号【维辰财经】下的最新20个视频  
 
 ## 简介
 
-    一般批量爬取视频或者图片的套路是，使用爬虫获得文件链接集合，然后通过 writeFile 等方法逐个保存文件。然而，头条的视频，在需要爬取的 html 文件（服务端渲染输出）中，无法捕捉视频链接。视频链接是页面在客户端渲染时，通过某些 js 文件内的算法或者解密方法，根据视频的已知 key 或者 hash 值，动态计算出来并添加到 video 标签的。这也是这些网站的一种反爬措施。
+一般批量爬取视频或者图片的套路是，使用爬虫获得文件链接集合，然后通过 writeFile 等方法逐个保存文件。然而，头条的视频，在需要爬取的 html 文件（服务端渲染输出）中，无法捕捉视频链接。视频链接是页面在客户端渲染时，通过某些 js 文件内的算法或者解密方法，根据视频的已知 key 或者 hash 值，动态计算出来并添加到 video 标签的。这也是网站的一种反爬措施。
 
-    我们在浏览这些页面时，通过审核元素，可以看到计算后的文件地址。然而在批量下载时，逐个手动的获取视频链接显然不可取。开心的是，puppeteer 提供了模拟访问 Chrome 的功能，使我们可以爬取经过浏览器渲染出来的最终页面。
+我们在浏览这些页面时，通过审核元素，可以看到计算后的文件地址。然而在批量下载时，逐个手动的获取视频链接显然不可取。开心的是，puppeteer 提供了模拟访问 Chrome 的功能，使我们可以爬取经过浏览器渲染出来的最终页面。
 
 ## 项目启动
 
@@ -50,9 +50,9 @@ puppeteer 主要作用：
 - page.goto() 进入指定网页
 - page.screenshot() 截图
 - page.waitFor() 页面等待，可以是时间、某个元素、某个函数
-- page.$eval() 获取指定元素，相当于 document.querySelector
-- page.$$eval() 获取指定元素，相当于 document.querySelectorAll
-- page.$('#id .className') 获取文档中的某个元素
+- page.$eval() 获取一个指定元素，相当于 document.querySelector
+- page.$$eval() 获取某类元素，相当于 document.querySelectorAll
+- page.$('#id .className') 获取文档中的某个元素，操作类似jQuery
 
 代码示例
 
@@ -77,7 +77,7 @@ const downloadVideo = async video => {
   // 判断视频文件是否已经下载
   if (!fs.existsSync(`${config.savePath}/${video.title}.mp4`)) {
     await getVideoData(video.src, 'binary').then(fileData => {
-      console.log('下载视频ing：', video.title)
+      console.log('下载视频中：', video.title)
       savefileToPath(video.title, fileData).then(res =>
         console.log(`${res}: ${video.title}`)
       )
