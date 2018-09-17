@@ -2,6 +2,7 @@
 
 目标网站：[西瓜视频](https://www.ixigua.com)  
 项目功能：下载头条号【维辰财经】下的最新20个视频  
+姊妹项目：[批量下载美女图集](https://github.com/tibaiwan/spider-picture) 
 
 ## 简介
 
@@ -11,6 +12,8 @@
 
 ## 项目启动
 
+> 命令
+
 ```bash
 npm i
 npm start
@@ -18,7 +21,7 @@ npm start
 
 **Notice:** 安装 puppeteer 的过程稍慢，耐心等待。
 
-## 配置
+> 配置文件
 
 ```js
 // 配置相关
