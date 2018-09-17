@@ -7,12 +7,12 @@ const config = require('./cofig'),
 
 module.exports = {
   // 新建保存视频的文件夹
-  mkdirSaveFolder () {
-    if (!fs.existsSync(config.savePath)) {
-      fs.mkdirSync(config.savePath)
-      console.log(`文件夹已生成：${config.savePath}`)
+  mkdirSaveFolder (savePath) {
+    if (!fs.existsSync(savePath)) {
+      fs.mkdirSync(savePath)
+      console.log(`文件夹已生成：${savePath}`)
     } else {
-      console.log(`文件夹已存在：${config.savePath}`)
+      console.log(`文件夹已存在：${savePath}`)
     }
     // 生成保存截图的文件夹
     if (!fs.existsSync('./screenshot')) {
@@ -89,8 +89,8 @@ module.exports = {
     })
   },
   // 下载视频到本地
-  savefileToPath (fileName, fileData) {
-    let fileFullName = `${config.savePath}/${fileName}.mp4`
+  savefileToPath (fileFolder, fileName, fileData) {
+    let fileFullName = `${fileFolder}/${fileName}.mp4`
     return new Promise((resolve, reject) => {
       fs.writeFile(fileFullName, fileData, 'binary', function (err) {
         if (err) {

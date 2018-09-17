@@ -4,7 +4,8 @@
   "description": "Node 下载西瓜视频",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "single": "node ./src/single.js"
   },
   "repository": {
     "type": "git",

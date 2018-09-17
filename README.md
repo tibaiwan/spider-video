@@ -19,6 +19,13 @@ npm i
 npm start
 ```
 
+> 单个文件下载命令
+
+```bash
+npm run single
+// 在文件 single.js 中设置视频名称和 src 即可。
+```
+
 **Notice:** 安装 puppeteer 的过程稍慢，耐心等待。
 
 > 配置文件
@@ -28,6 +35,23 @@ npm start
 module.exports =  {
   originPath: 'https://www.ixigua.com', // 页面请求地址
   savePath: 'D:/videoZZ' // 存放路径
+}
+```
+
+```js
+// 单个视频下载设置
+const folderName = 'D:/videoLOL'
+const fileName = 'S8预选赛TOP5：Haro李青无解操作支配战局「LOL七周年」'
+const videoSrc = 'http://v11-tt.ixigua.com/e2b7cbd320031f6c19890001503a6ca0/5b9fd7bb/video/m/2203ce04dd18e0e426381abfe64ea44f19b115bbe0a000027c1f6e94a77/'
+
+// 初始化方法
+const start = async () => {
+  method.mkdirSaveFolder(folderName)
+  let video = {
+    src: videoSrc,
+    title: fileName
+  }
+  downloadVideo(video)
 }
 ```
 

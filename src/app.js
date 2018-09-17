@@ -4,7 +4,7 @@ const fs = require('fs'),
 
 // 初始化方法
 const start = async () => {
-  method.mkdirSaveFolder()
+  method.mkdirSaveFolder(config.savePath)
   let toutiaoName = '维辰财经'
   let offset = 0 // offset: 0：第一页数据，20：第二页数据，依次类推
   let pageUrlList = await method.getVideoPageList(toutiaoName, offset)
@@ -39,8 +39,8 @@ const downloadVideo = async video => {
   // 判断视频文件是否已经下载
   if (!fs.existsSync(`${config.savePath}/${video.title}.mp4`)) {
     await method.getVideoData(video.src, 'binary').then(fileData => {
-      console.log('下载视频ing：', video.title)
-      method.savefileToPath(video.title, fileData).then(res =>
+      console.log('下载视频中：', video.title)
+      method.savefileToPath(config.savePath, video.title, fileData).then(res =>
         console.log(`${res}: ${video.title}`)
       )
     })
