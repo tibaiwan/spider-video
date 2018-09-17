@@ -14,6 +14,10 @@ module.exports = {
     } else {
       console.log(`文件夹已存在：${config.savePath}`)
     }
+    // 生成保存截图的文件夹
+    if (!fs.existsSync('./screenshot')) {
+      fs.mkdirSync('./screenshot')
+    }
   },
   // 获取西瓜视频所在页面的地址 list
   // name：头条号名称
