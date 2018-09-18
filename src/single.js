@@ -5,7 +5,8 @@ const fs = require('fs'),
 
 const folderName = 'D:/videoLOL'
 const fileName = 'S8预选赛TOP5：Haro李青无解操作支配战局「LOL七周年」'
-const videoSrc = 'http://v11-tt.ixigua.com/e2b7cbd320031f6c19890001503a6ca0/5b9fd7bb/video/m/2203ce04dd18e0e426381abfe64ea44f19b115bbe0a000027c1f6e94a77/'
+// 该视频链接可能已经失效了，请安排个正确的视频 src
+const videoSrc = 'http://v1-tt.ixigua.com/ad160a207f438d576d06f3cffa1ca52f/5ba06826/video/m/2203ce04dd18e0e426381abfe64ea44f19b115bbe0a000027c1f6e94a77/'
 
 // 初始化方法
 const start = async () => {

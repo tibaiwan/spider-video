@@ -1,3 +1,4 @@
+/* 方法集 */
 const config = require('./cofig'),
       fs = require('fs'),
       axios = require('axios'),

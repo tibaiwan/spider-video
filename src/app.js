@@ -1,3 +1,4 @@
+/* 批量下载主程序 */
 const fs = require('fs'),
       config = require('./cofig'),
       method = require('./method')
